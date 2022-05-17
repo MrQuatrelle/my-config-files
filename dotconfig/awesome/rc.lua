@@ -22,6 +22,12 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+-- load battery widget
+local battery_widget = require("battery-widget")
+local battery = battery_widget:new({})
+
+local separator = wibox.widget.textbox(" ")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -187,7 +193,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "dev", "www", "coms", "music", "shell", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ " dev ", " www ", " coms ", " music ", " shell ", " 6 ", " 7 ", " 8 ", " 9 " }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -227,11 +233,20 @@ awful.screen.connect_for_each_screen(function(s)
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
+			separator,
 			volume_widget,
+			separator,
             layout = wibox.layout.fixed.horizontal,
+			separator,
             mykeyboardlayout,
+			separator,
             wibox.widget.systray(),
+			separator,
             mytextclock,
+			separator,
+			battery.widget,
+			separator,
+			separator,
             -- s.mylayoutbox,
         },
     }
