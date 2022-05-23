@@ -220,7 +220,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 25 })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 26 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -617,3 +617,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("picom --experimental-backends -b")
 awful.spawn("xscreensaver")
+awful.spawn.with_shell("nm-applet")

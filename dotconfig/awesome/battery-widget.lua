@@ -32,6 +32,7 @@ function Battery:new(args)
 	obj.capacityFile = args.capacityFile or "capacity"
 	obj.statusFile = args.statusFile or "status"
 	obj.isChargingIndicator = args.isChargingIndicator or "Charging"
+	obj.chargeLimit = "charge_control_end_threshold"
 
 	-- Create imagebox widget
 	obj.widget = wibox.widget.imagebox()
@@ -54,7 +55,14 @@ function Battery:new(args)
 end
 
 function Battery:tooltipText()
-	return self:getCapacity().."% Battery Life"
+	if self:getCharging() then
+		return self:getCapacity().."%, Charging"
+	else if self:getDischarging() then
+		return self:getCapacity().."%, Discharging"
+	else
+		return self:getCapacity().."%, On AC"
+	end
+	end
 end
 
 function Battery:update(status)
@@ -73,6 +81,14 @@ end
 function Battery:getCharging()
 	local status = run("cat "..self.batteryDir..self.battery.."/"..self.statusFile)
 	if status:find("Charging") ~= nil then
+		return true
+	end
+	return false
+end
+
+function Battery:getDischarging()
+	local status = run("cat "..self.batteryDir..self.battery.."/"..self.statusFile)
+	if status:find("Discharging") ~= nil then
 		return true
 	end
 	return false
