@@ -1,2 +1,2 @@
 # my-config-files
-My config files for Vim, Alacritty, i3WM, Picom and AwesomeWM
+My config files for Vim, Alacritty, i3WM, Picom, Polybar and AwesomeWM
