@@ -36,12 +36,15 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # start nitrogen and set resolution on log-in
 
-exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
+exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal
 exec_always nitrogen --restore
 
 # start polybar
-exec_always --no-startup-id polybar internal & polybar external
+exec --no-startup-id polybar internal & polybar internal2 & polybar external
+
+# start nm-applet and blueman-applet
 exec_always --no-startup-id nm-applet
+exec_always --no-startup-id blueman-applet
 
 # start picom
 exec_always picom --experimental-backends -b
@@ -63,18 +66,22 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty --config-file /home/mrquatrelle/.config/alacritty/alacritty.yml
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
-# lock screen (lighdm-greeter)
-bindsym $mod+Shift+s exec dm-tool switch-to-greeter
+# lock screen (i3lock)
+bindsym $mod+Shift+s exec i3lock --color=151515
 
-
-# start dmenu (a program launcher)
+# open rofi 
 bindsym $mod+d exec rofi -show run
 
-# open file manager (pcmanfm)
-bindsym $mod+e exec pcmanfm
+# take screenshot
+bindsym $mod+p exec coreshot -f
 
+# open file manager (nemo)
+bindsym $mod+e exec nemo
+
+#open vim
+bindsym $mod+v exec alacritty -e vim
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -109,7 +116,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+b split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -169,9 +176,9 @@ bindsym $mod+Shift+m move workspace to output next
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart & exec killall polybar
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 for_window [class="^.*"] border pixel 0
 
@@ -208,3 +215,16 @@ smart_gaps on
 
 # custom keyboard
 exec setxkbmap -option ctrl:swapcaps # swap CapsLock with Ctrl
+
+#assigning workspaces where each app must go
+assign [class="Brave"] $ws3
+assign [class="Spotify"] $ws5
+assign [class="Pavucontrol"] $ws5
+assign [class ="Equalizer"] $ws5
+
+# open programs on startup
+exec alacritty
+exec brave
+exec spotify-launcher
+exec pavucontrol
+exec pulseaudio-equalizer-gtk
