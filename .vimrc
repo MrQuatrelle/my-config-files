@@ -1,4 +1,5 @@
 " CUSTOMIZATIONS:
+set ttymouse=sgr
 set mouse=a
 set nocompatible
 set tabstop=4
@@ -10,16 +11,16 @@ set incsearch
 set ignorecase
 set title
 set scrolloff=5
-set noerrorbells
+set noshowmode
 set spelllang=en_gb
 set laststatus=2
 set cmdheight=1
-
-"filetype plugin indent on
-"if has("syntax")
-"	syntax on
-"endif
 set colorcolumn=100
+
+filetype plugin indent on
+if has("syntax")
+	syntax on
+endif
 
 set path+=**
 set wildmenu
@@ -27,11 +28,6 @@ set wildmenu
 " SNIPPETS:
 " simple typical c file skeleton
 nnoremap -c :-1read ~/.vim/.skeleton.c<CR>3ja
-
-" INSERT MODE SNIPPETS:
-" auto {},() and tab
-inoremap {<CR> {<CR>}<Esc>O<Tab>
-inoremap )<CR> )<CR><Tab>
 
 " NOOBPROOF KEYBLOCKS:
 " nnoremap <UP> :echo "stop being a moron!"<CR>
@@ -44,6 +40,7 @@ nnoremap ç l
 nnoremap l k
 nnoremap k j
 nnoremap j h
+
 vnoremap ç l
 vnoremap l k
 vnoremap k j
@@ -55,7 +52,7 @@ vnoremap j h
 :command Wq wq
 :command WQ wq
 
-" CUMSTOM SCROLL KEYBINDS:
+" SCROLL REMAP:
 nnoremap K <C-E>
 nnoremap L <C-Y>
 
@@ -63,3 +60,18 @@ nnoremap L <C-Y>
 au InsertEnter * let updaterestore=&updatetime | set updatetime=10000
 au InsertLeave * let &updatetime=updaterestore
 au CursorHoldI * stopinsert
+
+" ABREVIATIONS:
+ab teh the
+
+" FUZZ FINDER:
+set rtp+=~/git-repos/.fzf
+nnoremap <C-E> :FZF<CR>
+
+" Swapping P:
+nnoremap p P
+nnoremap P p
+
+" Swapping O:
+nnoremap o O
+nnoremap O o
