@@ -34,23 +34,31 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 # exec --no-startup-id nm-applet
 
-# start nitrogen and set resolution on log-in
+# set resolutions on log-in and starts polybar
 
-exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal
-exec_always nitrogen --restore
+### RESIDENCY ###
+# exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal
+# exec --no-startup-id polybar internal & polybar internal2 & polybar external
 
-# start polybar
-exec --no-startup-id polybar internal & polybar internal2 & polybar external
+### HOME ###
+exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
+
+exec --no-startup-id polybar internal & polybar internal2-home & polybar external-home &
+###
+
+# restore nitrogen and start wired
+exec_always nitrogen --restore & 
+exec wired & 
 
 # start nm-applet and blueman-applet
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id blueman-applet
+exec --no-startup-id nm-applet &
+exec --no-startup-id blueman-applet & 
 
 # start picom
 exec_always picom --experimental-backends -b
 
 # start copyq (clipboard manager)
-exec copyq
+exec copyq &
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_status killall -SIGUSR1 polybar
@@ -69,13 +77,14 @@ bindsym $mod+Return exec alacritty --config-file /home/mrquatrelle/.config/alacr
 bindsym $mod+q kill
 
 # lock screen (i3lock)
-bindsym $mod+Shift+s exec i3lock --color=151515
+bindsym $mod+Shift+s exec betterlockscreen -l blur
 
 # open rofi 
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
 
 # take screenshot
-bindsym $mod+p exec coreshot -f
+bindsym $mod+p exec import .screenshot.png
+bindsym $mod+Shift+p exec xclip -selection clipboard -t image/png -i .screenshot.png
 
 # open file manager (nemo)
 bindsym $mod+e exec nemo
@@ -210,7 +219,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # setting gaps
-gaps inner 12
+gaps inner 11
 smart_gaps on
 
 # custom keyboard
@@ -223,8 +232,8 @@ assign [class="Pavucontrol"] $ws5
 assign [class ="Equalizer"] $ws5
 
 # open programs on startup
-exec alacritty
-exec brave
-exec spotify-launcher
-exec pavucontrol
-exec pulseaudio-equalizer-gtk
+exec alacritty &
+exec brave & 
+exec spotify-launcher &
+exec pavucontrol &
+exec pulseaudio-equalizer-gtk & 
