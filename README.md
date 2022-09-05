@@ -1,2 +1,3 @@
 # my-config-files
-My config files for Vim, Alacritty, i3WM, Picom, Polybar and AwesomeWM
+My config files for Vim, Alacritty, i3WM, Picom, Polybar, AwesomeWM, Wired (notification manager)
+and Rofi.
