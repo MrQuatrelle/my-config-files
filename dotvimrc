@@ -17,18 +17,13 @@ set laststatus=2
 set cmdheight=1
 set colorcolumn=100
 set pastetoggle=<F2>
-set path+=**
-set wildmenu
-
 
 filetype plugin indent on
 if has("syntax")
 	syntax on
 endif
-
-
 " AUTOCLOSE BRACES PARENTHESIS AND BRACKETS:
-inoremap { {}<Left>
+inoremap { <Space>{}<Left>
 inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 
 inoremap ( ()<Left>
@@ -36,7 +31,6 @@ inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 
 inoremap [ []<Left>
 inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
-
 
 inoremap <expr> <CR> ClosedIndentation()
 function! ClosedIndentation()
@@ -51,13 +45,14 @@ function! ClosedIndentation()
 	endif
 endfunction
 
+set path+=**
+set wildmenu
 
 " NOOBPROOF KEYBLOCKS:
-" nnoremap <UP> :echo "stop being a moron!"<CR>
-" nnoremap <DOWN> :echo "stop being a moron!"<CR>
-" nnoremap <LEFT> :echo "stop being a moron!"<CR>
-" nnoremap <RIGHT> :echo "stop being a moron!"<CR>
-
+nnoremap <UP> :echo "stop being a moron!"<CR>
+nnoremap <DOWN> :echo "stop being a moron!"<CR>
+nnoremap <LEFT> :echo "stop being a moron!"<CR>
+nnoremap <RIGHT> :echo "stop being a moron!"<CR>
 
 " SHIFTING CURSOR CONTROLS A KEY TO THE RIGHT IN NORMAL AND VISUAL MODE:
 nnoremap ç l
@@ -70,33 +65,27 @@ vnoremap l k
 vnoremap k j
 vnoremap j h
 
-
 " ONE LESS PROBLEM IN THIS MISERABLE WORLD:
 :command Q q
 :command W w
 :command Wq wq
 :command WQ wq
 
-
 " SCROLL REMAP:
 nnoremap K <C-E>
 nnoremap L <C-Y>
-
 
 " EXIT INSERT MODE AFTER TEN SECs OF INNACTIVITY:
 au InsertEnter * let updaterestore=&updatetime | set updatetime=10000
 au InsertLeave * let &updatetime=updaterestore
 au CursorHoldI * stopinsert
 
-
 " ABREVIATIONS:
 ab teh the
-
 
 " FUZZ FINDER:
 set rtp+=~/git-repos/.fzf
 nnoremap <C-E> :FZF<CR>
-
 
 " Swapping P:
 nnoremap p P
