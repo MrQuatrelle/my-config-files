@@ -37,13 +37,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # set resolutions on log-in and starts polybar
 
 ### RESIDENCY ###
-# exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal
-# exec --no-startup-id polybar internal & polybar internal2 & polybar external
+exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal
+exec --no-startup-id polybar internal & polybar internal2 & polybar external &
 
 ### HOME ###
-exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
+# exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
 
-exec --no-startup-id polybar internal & polybar internal2-home & polybar external-home &
+# exec --no-startup-id polybar internal & polybar internal2-home & polybar external-home &
 ###
 
 # restore nitrogen and start wired
@@ -55,10 +55,7 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet & 
 
 # start picom
-exec_always picom --experimental-backends -b
-
-# start copyq (clipboard manager)
-exec copyq &
+exec picom --experimental-backends -b
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_status killall -SIGUSR1 polybar
@@ -77,7 +74,7 @@ bindsym $mod+Return exec alacritty --config-file /home/mrquatrelle/.config/alacr
 bindsym $mod+q kill
 
 # lock screen (i3lock)
-bindsym $mod+Shift+s exec betterlockscreen -l blur
+bindsym $mod+Shift+s exec i3lock --color 282a33
 
 # open rofi 
 bindsym $mod+d exec rofi -show drun
@@ -185,7 +182,7 @@ bindsym $mod+Shift+m move workspace to output next
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart & exec killall polybar
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -229,11 +226,11 @@ exec setxkbmap -option ctrl:swapcaps # swap CapsLock with Ctrl
 assign [class="Brave"] $ws3
 assign [class="Spotify"] $ws5
 assign [class="Pavucontrol"] $ws5
-assign [class ="Equalizer"] $ws5
+assign [class ="EasyEffects"] $ws5
 
 # open programs on startup
 exec alacritty &
 exec brave & 
 exec spotify-launcher &
 exec pavucontrol &
-exec pulseaudio-equalizer-gtk & 
+exec easyeffects & 
