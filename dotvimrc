@@ -89,10 +89,3 @@ ab lenght() length()
 set rtp+=~/git-repos/.fzf
 nnoremap <C-E> :FZF<CR>
 
-" Swapping P:
-nnoremap p P
-nnoremap P p
-
-" Swapping O:
-nnoremap o O
-nnoremap O o
