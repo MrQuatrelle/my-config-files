@@ -28,6 +28,8 @@ exec --no-startup-id dex --autostart --environment i3
 
 exec_always xrdb /home/mrquatrelle/.Xresources
 
+exec xinput set-prop 14 359 1 
+exec xinput set-prop 12 329 1
 # set resolutions on log-in and starts polybar
 
 ### RESIDENCY ###

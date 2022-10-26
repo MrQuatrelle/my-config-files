@@ -1,10 +1,6 @@
+require("impatient")
 require("mappings")
-
-local o = vim.o
-
-o.number = true
-o.relativenumber = true
-o.numberwidth = 4
-
-
-o.clipboard = "unnamedplus"
+require("options")
+require("plugins")
+require("custom_commands")
+require("setup")
