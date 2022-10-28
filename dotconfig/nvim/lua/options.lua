@@ -16,3 +16,4 @@ o.smartindent = true
 o.incsearch = true
 o.hlsearch = false
 
+o.scrolloff = 5

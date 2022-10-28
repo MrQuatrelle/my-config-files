@@ -1,0 +1,49 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+[directory]
+truncation_length = 8
+truncation_symbol = "…/"
+style = "bold blue"
+home_symbol = "🏠"
+
+[character]
+success_symbol = "[==>](bold blue)"
+error_symbol = "[==>](bold red)"
+
+[sudo]
+style = "bold fg:202"
+[git_branch]
+style = "bold green"
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+
+[c]
+format = "[using $name $version]($style)"
+
+[java]
+format = "[using jdk $version ](bold blue)"
+
+[lua]
+format = "🌙 "
+
+[python]
+symbol = "🤮 "
+format = "[${symbol}${pyenv_prefix}(${version} )]($style)"
+
+[rust]
+symbol = "🦀 "
+style = "bold fg:208"
+format = "[$symbol($version )]($style)"

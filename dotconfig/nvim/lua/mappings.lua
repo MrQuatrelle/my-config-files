@@ -6,6 +6,8 @@ keymap.set({"n", "x"}, "j", "h")
 keymap.set({"n", "x"}, "k", "j")
 keymap.set({"n", "x"}, "l", "k")
 keymap.set({"n", "x"}, "ç", "l")
+
+-- Scroll
 keymap.set("n", "K", "<C-e>")
 keymap.set("n", "L", "<C-y>")
 
