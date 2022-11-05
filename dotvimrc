@@ -55,7 +55,7 @@ nnoremap <DOWN> :echo "stop being a moron!"<CR>
 nnoremap <LEFT> :echo "stop being a moron!"<CR>
 nnoremap <RIGHT> :echo "stop being a moron!"<CR>
 
-" SHIFTING CURSOR CONTROLS A KEY TO THE RIGHT IN NORMAL AND VISUAL MODE:
+" SHIFTING CURSOR CONTROLS A KEY TO THE RIGHT IN NORMAL VISUAL AND OPENDING MODE:
 nnoremap ç l
 nnoremap l k
 nnoremap k j
@@ -65,6 +65,11 @@ vnoremap ç l
 vnoremap l k
 vnoremap k j
 vnoremap j h
+
+onoremap ç l
+onoremap l k
+onoremap k j
+onoremap j h
 
 " ONE LESS PROBLEM IN THIS MISERABLE WORLD:
 :command Q q
