@@ -50,7 +50,7 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet & 
 
 # start picom
-exec picom --experimental-backends -b -f -D 6 -I 0.03
+exec picom -b -f -D 6 -I 0.03
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_status killall -SIGUSR1 polybar
