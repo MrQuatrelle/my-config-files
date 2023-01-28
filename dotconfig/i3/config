@@ -28,18 +28,24 @@ exec --no-startup-id dex --autostart --environment i3
 
 exec_always xrdb /home/mrquatrelle/.Xresources
 
+# activate trackpad tapping
 exec_always xinput set-prop 14 359 1 
 exec_always xinput set-prop 12 357 1
 # set resolutions on log-in and starts polybar
 
+# restore brightness level
+exec_always $HOME/.scripts/restore-brightness.sh
+
 ### RESIDENCY ###
 exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal
-exec --no-startup-id polybar internal & polybar internal2 & polybar external &
+exec --no-startup-id $HOME/.scripts/polybar-start.sh
+set $refresh_status $HOME/.scripts/polybar-start.sh
 
 ### HOME ###
 # exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
 
-# exec --no-startup-id polybar internal & polybar internal2-home & polybar external-home &
+# exec --no-startup-id $HOME/.scripts/polybar-start-home.sh
+# set $refresh_status $HOME/.scripts/polybar-start-home.sh
 ###
 
 # restore nitrogen and start wired
@@ -50,10 +56,9 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet & 
 
 # start picom
-exec picom -b -f -D 6 -I 0.03
+exec picom -b -f -D 6 -I 0.03 --vsync
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_status killall -SIGUSR1 polybar
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -180,7 +185,7 @@ bindsym $mod+Shift+m move workspace to output next
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart $refresh_status
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -218,7 +223,8 @@ gaps inner 11
 smart_gaps on
 
 # custom keyboard
-exec setxkbmap -option ctrl:swapcaps # swap CapsLock with Ctrl
+# swap CapsLock with Ctrl
+exec setxkbmap -option ctrl:swapcaps
 
 #assigning workspaces where each app must go
 assign [class="Brave"] $ws3
