@@ -1,21 +1,25 @@
 font:
   normal:
-    family: JetBrains Mono
+    family: Fira Code
     style: Regular
 
   bold:
-    family: JetBrains Mono
+    family: Fira Code
     style: SemiBold
 
   italic:
-    family: JetBrains Mono
+    family: Fira Code
     style: Italic
 
   bold_italic:
-    family: JetBrains Mono
+    family: Fira Code
     style: Bold Italic
 
-  size: 9.5
+  size: 13
+
+window:
+  background_opacity: 0.1
+
 colors:
   # Default colors
   primary:

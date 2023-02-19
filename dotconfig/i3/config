@@ -69,14 +69,18 @@ bindsym XF86MonBrightnessDown exec "~/.scripts/brightness.sh -"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec alacritty --config-file /home/mrquatrelle/.config/alacritty/alacritty.yml
+# start a terminal (alacritty)
+# bindsym $mod+Return exec alacritty --config-file /home/mrquatrelle/.config/alacritty/alacritty.yml
+# start a terminal (kitty)
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
 
 # lock screen (i3lock)
-bindsym $mod+Shift+s exec i3lock --color 282a33
+# bindsym $mod+Shift+s exec i3lock --color 282a33
+# lock screen (xflock4)
+bindsym $mod+Shift+s exec xflock4
 
 # open rofi 
 bindsym $mod+d exec rofi -show drun
@@ -220,7 +224,6 @@ bindsym $mod+r mode "resize"
 
 # setting gaps
 gaps inner 11
-smart_gaps on
 
 # custom keyboard
 # swap CapsLock with Ctrl
