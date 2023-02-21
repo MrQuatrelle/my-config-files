@@ -223,6 +223,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # setting gaps
+smart_gaps on
 gaps inner 11
 
 # custom keyboard
