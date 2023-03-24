@@ -37,9 +37,9 @@ exec_always xinput set-prop 12 357 1
 exec_always $HOME/.scripts/restore-brightness.sh
 
 ### RESIDENCY ###
-exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal
-exec --no-startup-id $HOME/.scripts/polybar-start.sh
-set $refresh_status $HOME/.scripts/polybar-start.sh
+# exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --primary --mode 1920x1080 --pos 1610x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal
+# exec --no-startup-id $HOME/.scripts/polybar-start.sh
+# set $refresh_status $HOME/.scripts/polybar-start.sh
 
 ### HOME ###
 # exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1-1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
@@ -237,7 +237,7 @@ assign [class="Pavucontrol"] $ws5
 assign [class ="easyeffects"] $ws5
 
 # open programs on startup
-exec alacritty &
+exec kitty &
 exec brave & 
 exec spotify &
 exec pavucontrol &
