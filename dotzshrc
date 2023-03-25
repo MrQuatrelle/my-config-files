@@ -20,7 +20,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # config files aliases
 alias zconf="vim $HOME/.zshrc"
-alias wconf="vim $HOME/.config/i3/config"
+alias wconf="vim $HOME/.config/hypr/hyprland.conf"
 alias vconf="vim $HOME/.vimrc"
 alias nconf="vim $HOME/.config/wired/wired.ron"
 alias aconf="vim $HOME/.config/alacritty/alacritty.yml"
