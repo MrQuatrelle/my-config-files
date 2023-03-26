@@ -24,6 +24,7 @@ alias wconf="vim $HOME/.config/hypr/hyprland.conf"
 alias vconf="vim $HOME/.vimrc"
 alias nconf="vim $HOME/.config/wired/wired.ron"
 alias aconf="vim $HOME/.config/alacritty/alacritty.yml"
+alias nvconf="cd $HOME/.config/nvim ; nvim ."
 
 # ls aliases
 alias l="ls"
