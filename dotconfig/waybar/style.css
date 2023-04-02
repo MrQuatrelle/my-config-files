@@ -108,7 +108,7 @@ tooltip {
 }
 
 #clock {
-	color: #fab387;
+	color: #ff9e64;
 	border-radius: 10px 10px 10px 10px;
 	margin-left: 5px;
 	border-right: 5px;
@@ -121,20 +121,20 @@ tooltip {
 }
 
 #pulseaudio {
-	color: #89b4fa;
+	color: #5294e3;
 	border-left: 5px;
 	border-right: 0px;
 	border-radius: 10px 0px 0px 10px;
 }
 
 #pulseaudio.microphone {
-	color: #cba6f7;
+	color: #5294e3;
 	margin-right: 5px;
 	border-radius: 0 10px 10px 0;
 }
 
 #battery {
-	color: #a6e3a1;
+	color: #32cd30;
 	border-radius: 10px 10px 10px 10px;
 	margin-right: 10px;
 	border-left: 0px;
