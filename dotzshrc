@@ -36,5 +36,7 @@ alias lla="ls -la"
 alias vi="\vim"
 alias vim="nvim"
 
+alias cat="bat"
+
 echo ""
 neofetch
