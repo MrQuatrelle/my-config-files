@@ -14,6 +14,7 @@
     ],
     "modules-right": [
         "battery",
+        "custom/brightness",
         "pulseaudio",
         "pulseaudio#microphone",
         "clock",
@@ -74,6 +75,11 @@
     "clock": {
         "format": "{: %R   %d/%m}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "custom/brightness": {
+        "exec": "expr `expr \\`cat /sys/class/backlight/*/brightness\\` \\* 100` / `cat /sys/class/backlight/*/max_brightness `",
+        "interval": 1,
+        "format": "󰃟 {}%"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
