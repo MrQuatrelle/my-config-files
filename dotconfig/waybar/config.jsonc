@@ -43,13 +43,6 @@
         "interval": 7200,
         "format": " {}"
     },
-    "custom/weather": {
-        "tooltip": true,
-        "format": "{}",
-        "restart-interval": 300,
-        "exec": "~/.config/waybar/scripts/waybar-wttr.py",
-        "return-type": "json"
-    },
     "battery": {
         "states": {
             "good": 95,
