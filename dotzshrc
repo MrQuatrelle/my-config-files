@@ -18,6 +18,10 @@ eval "$(starship init zsh)"
 # requires zsh-autosuggestions (manually) installed
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# autocompletion
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 # config files aliases
 alias zconf="vim $HOME/.zshrc"
 alias wconf="vim $HOME/.config/hypr/hyprland.conf"
@@ -27,10 +31,11 @@ alias aconf="vim $HOME/.config/alacritty/alacritty.yml"
 alias nvconf="cd $HOME/.config/nvim ; nvim ."
 
 # ls aliases
-alias l="ls"
-alias ll="ls -l"
-alias la="ls -a"
-alias lla="ls -la"
+alias ls="ls --color"
+alias l="ls --color"
+alias ll="ls -l --color"
+alias la="ls -a --color"
+alias lla="ls -la --color"
 
 # vim aliases
 alias vi="\vim"
