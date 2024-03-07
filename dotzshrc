@@ -2,6 +2,7 @@
 HISTFILE=~/.zsh-hist
 HISTSIZE=1000
 SAVEHIST=10000
+EDITOR=nvim
 setopt extendedglob nomatch
 unsetopt autocd beep notify
 bindkey -e
@@ -41,7 +42,14 @@ alias lla="ls -la --color"
 alias vi="\vim"
 alias vim="nvim"
 
+# wine aliases
+alias winetricks32="WINEPREFIX=~/.wine32 WINEARCH=win32 winetricks"
+
 alias cat="bat"
 
 echo ""
 neofetch
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /home/mrquatrelle/.config/broot/launcher/bash/br
