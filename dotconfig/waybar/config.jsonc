@@ -54,17 +54,17 @@
         "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁼",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
         ]
     },
     "tray": {
@@ -72,8 +72,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{: %R   %d/%m}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format": " {:%H:%M   %d/%m}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>"
     },
     "custom/brightness": {
         "exec": "expr `expr \\`cat /sys/class/backlight/*/brightness\\` \\* 100` / `cat /sys/class/backlight/*/max_brightness `",
@@ -105,8 +105,8 @@
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "tooltip": false,
-        "format-source": " {volume}%",
-        "format-source-muted": " Muted",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
         "on-click": "pamixer --default-source -t",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
