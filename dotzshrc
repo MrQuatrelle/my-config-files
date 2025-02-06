@@ -10,6 +10,8 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/mrquatrelle/.zshrc'
 
+fpath+=~/.zfunc
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
@@ -45,11 +47,39 @@ alias vim="nvim"
 # wine aliases
 alias winetricks32="WINEPREFIX=~/.wine32 WINEARCH=win32 winetricks"
 
+# miselaneous aliases
 alias cat="bat"
+alias open="xdg-open"
+alias downloads="cd ~/Downloads"
+alias tree="tree -C"
+alias ollama="ollama serve & sleep 1 ; ollama run deepseek-r1 ; killall ollama ; fg"
 
+# vagrant() {
+#     export LIBVIRT_DEFAULT_URI=qemu:///system
+# 
+#     docker run -it --rm \
+#         -e LIBVIRT_DEFAULT_URI \
+#         -v /var/run/libvirt/:/var/run/libvirt/ \
+#         -v ~/.vagrant.d:/.vagrant.d \
+#         -v $(realpath "${PWD}"):${PWD} \
+#         -w "${PWD}" \
+#         --network host \
+#         vagrantlibvirt/vagrant-libvirt:latest \
+#         vagrant $@
+#     }
 echo ""
+
 neofetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /home/mrquatrelle/.config/broot/launcher/bash/br
+path+=('~/.local/bin')
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/home/mrquatrelle/.opam/opam-init/init.zsh' ]] || source '/home/mrquatrelle/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration

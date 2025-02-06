@@ -71,6 +71,21 @@ onoremap l k
 onoremap k j
 onoremap j h
 
+nnoremap ; l
+nnoremap l k
+nnoremap k j
+nnoremap j h
+
+vnoremap ; l
+vnoremap l k
+vnoremap k j
+vnoremap j h
+
+onoremap ; l
+onoremap l k
+onoremap k j
+onoremap j h
+
 " ONE LESS PROBLEM IN THIS MISERABLE WORLD:
 :command Q q
 :command W w
@@ -78,8 +93,8 @@ onoremap j h
 :command WQ wq
 
 " SCROLL REMAP:
-nnoremap K <C-E>
-nnoremap L <C-Y>
+nnoremap <C-K> 10jzz
+nnoremap <C-L> 10kzz
 
 " EXIT INSERT MODE AFTER TEN SECs OF INNACTIVITY:
 au InsertEnter * let updaterestore=&updatetime | set updatetime=10000
