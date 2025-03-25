@@ -1,0 +1,15 @@
+[includeIf "gitdir:~/uni/**/*"]
+  path = ~/uni/.gitconfig
+
+# TODO: remove when fully migrated uni projects to ~/uni
+[includeIf "gitdir:~/projects/**/*"]
+  path = ~/uni/.gitconfig
+[includeIf "gitdir:~/free/**/*"]
+  path = ~/free/.gitconfig
+
+[core]
+	editor = nvim
+[alias]
+    logg = log --graph --all
+[push]
+	autoSetupRemote = true
