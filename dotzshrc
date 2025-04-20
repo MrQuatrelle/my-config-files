@@ -28,10 +28,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # config files aliases
 alias zconf="vim $HOME/.zshrc"
 alias wconf="vim $HOME/.config/hypr/hyprland.conf"
+alias kconf="vim $HOME/.config/kitty/kitty.conf"
 alias vconf="vim $HOME/.vimrc"
-alias nconf="vim $HOME/.config/wired/wired.ron"
-alias aconf="vim $HOME/.config/alacritty/alacritty.yml"
-alias nvconf="cd $HOME/.config/nvim ; nvim ."
+alias nvconf="PWD=$HOME/.config/nvim nvim ."
 
 # ls aliases
 alias ls="ls --color"
@@ -53,6 +52,7 @@ alias open="xdg-open"
 alias downloads="cd ~/Downloads"
 alias tree="tree -C"
 alias ollama="ollama serve & sleep 1 ; ollama run deepseek-r1 ; killall ollama ; fg"
+alias zathura="zathura --fork"
 
 # vagrant() {
 #     export LIBVIRT_DEFAULT_URI=qemu:///system
@@ -83,3 +83,6 @@ path+=('~/.local/bin')
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/mrquatrelle/.opam/opam-init/init.zsh' ]] || source '/home/mrquatrelle/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+
+export NOMAD_TOKEN=`cat ~/.nomad-token`
+
