@@ -30,7 +30,7 @@ alias zconf="vim $HOME/.zshrc"
 alias wconf="vim $HOME/.config/hypr/hyprland.conf"
 alias kconf="vim $HOME/.config/kitty/kitty.conf"
 alias vconf="vim $HOME/.vimrc"
-alias nvconf="PWD=$HOME/.config/nvim nvim ."
+alias nvconf="cd $HOME/.config/nvim ; nvim ."
 
 # ls aliases
 alias ls="ls --color"
