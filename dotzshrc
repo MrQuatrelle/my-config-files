@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh-hist
-HISTSIZE=1000
-SAVEHIST=10000
+HISTSIZE=5000
+SAVEHIST=5000
 EDITOR=nvim
 setopt extendedglob nomatch
 unsetopt autocd beep notify
@@ -53,6 +53,7 @@ alias downloads="cd ~/Downloads"
 alias tree="tree -C"
 alias ollama="ollama serve & sleep 1 ; ollama run deepseek-r1 ; killall ollama ; fg"
 alias zathura="zathura --fork"
+alias df="dysk"
 
 # vagrant() {
 #     export LIBVIRT_DEFAULT_URI=qemu:///system
@@ -85,4 +86,6 @@ path+=('~/.local/bin')
 # END opam configuration
 
 export NOMAD_TOKEN=`cat ~/.nomad-token`
+
+[[ "$TERM" != "xterm-kitty" ]] || alias ssh="kitten ssh"
 
