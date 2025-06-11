@@ -1,17 +1,41 @@
+[includeIf "gitdir:~/free/**/*"]
+    path = ~/free/.gitconfig
 [includeIf "gitdir:~/uni/**/*"]
-  path = ~/uni/.gitconfig
+    path = ~/uni/.gitconfig
+[includeIf "gitdir:~/mobrand/**/*"]
+    path = ~/mobrand/.gitconfig
 
 # TODO: remove when fully migrated uni projects to ~/uni
 [includeIf "gitdir:~/projects/**/*"]
-  path = ~/uni/.gitconfig
-[includeIf "gitdir:~/free/**/*"]
-  path = ~/free/.gitconfig
-
+    path = ~/uni/.gitconfig
+  
 [core]
-	editor = nvim
+    editor = nvim
+    whitespace = error
+    preloadindex = true
+
 [alias]
-    loga = log --all
-    logg = log --graph
-    logga = log --graph --all
+    logg = !serie -o topo
+    branchee = "!f() { git branch \"$1\" && git worktree add ../\"$1\" \"$1\"; }; f"
+
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
+    followTags = true
+    
+[pull]
+    default = current
+    rebase = true
+
+[url "git@github.com:mrquatrelle"]
+    insteadOf = "mrquatrelle"
+
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
+
+[diff]
+    renames = copies
+
+[pager]
+    diff = bat
