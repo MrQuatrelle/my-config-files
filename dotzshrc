@@ -89,3 +89,7 @@ export NOMAD_TOKEN=`cat ~/.nomad-token`
 
 [[ "$TERM" != "xterm-kitty" ]] || alias ssh="kitten ssh"
 
+source /home/mrquatrelle/.config/broot/launcher/bash/br
+
+alias biblia='diatheke -b PorRecebida -f plain -k '
+alias bible='diatheke -b KJV -f plain -k '

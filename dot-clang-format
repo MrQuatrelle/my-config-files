@@ -164,4 +164,6 @@ WhitespaceSensitiveMacros:
 Language: Proto
 IndentWidth: 4
 AllowShortFunctionsOnASingleLine: false
+BraceWrapping:
+  SplitEmptyFunction: false
 ...
