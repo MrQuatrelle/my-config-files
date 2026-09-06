@@ -74,6 +74,7 @@ neofetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+path+=('~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin')
 path+=('~/.local/bin')
 
 
